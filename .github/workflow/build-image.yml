@@ -1,0 +1,14 @@
+name: push image to dockerhub
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
+
+jobs:
+  build-image:
+    runs_on: ubuntu-latest
