@@ -1,7 +1,6 @@
 services:
   postgresql_master:
-    build:
-      context: .
+    image: arxi0xyz/arxi-cloud-native-lab_postgresql-master:main
     container_name: postgresql_master
     ports: 
       - '5432:5432'
@@ -9,7 +8,5 @@ services:
       - POSTGRES_USER=${POSTGRES_USER}  
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=${POSTGRES_DB}
-      - PGDATA=/var/lib/postgresql/data
     volumes:
       - './data:/var/lib/postgresql/data'
-      - './init/init.sql:/docker-entrypoint-initdb.d/init.sql'
